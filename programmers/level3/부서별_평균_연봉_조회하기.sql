@@ -6,10 +6,16 @@ HR_DEPARTMENT와 HR_EMPLOYEES 테이블을 이용해 부서별 평균 연봉을 
 결과는 부서별 평균 연봉을 기준으로 내림차순 정렬해주세요.
 */
 
-select a.DEPT_ID
-      ,b.DEPT_NAME_EN	
-      ,round(avg(a.SAL)) as AVG_SAL
-from HR_EMPLOYEES a
-left join HR_DEPARTMENT b on b.DEPT_ID = a.DEPT_ID
-group by 1,2
+with gijun as (
+select DEPT_ID
+      ,DEPT_NAME_EN
+from HR_DEPARTMENT
+    )
+    select e.DEPT_ID
+    ,DEPT_NAME_EN
+    ,round(avg(SAL)) as AVG_SAL
+    from HR_EMPLOYEES e 
+    inner join gijun g on g.DEPT_ID = e.DEPT_ID
+    group by 1
+    order by AVG_SAL desc
 
