@@ -19,3 +19,14 @@ where case when i.SEX_UPON_INTAKE != o.SEX_UPON_OUTCOME then 1 else 0 end = 1
           ,a.NAME
     from out_list a
 
+
+#다른풀이 추가(26/9/21)
+
+select i.ANIMAL_ID
+      ,i.ANIMAL_TYPE
+      ,i.NAME
+from ANIMAL_INS i 
+inner join ANIMAL_OUTS o on o.ANIMAL_ID = i.ANIMAL_ID
+where case when i.SEX_UPON_INTAKE != o.SEX_UPON_OUTCOME then 1 end = 1
+order by 1
+
