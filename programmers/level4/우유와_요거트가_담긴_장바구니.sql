@@ -14,3 +14,13 @@ having count(distinct NAME) = 2
     from gijun
     group by 1
 
+
+/*
+WHERE name IN ('Milk', 'Yogurt')
+HAVING COUNT(*) >= 2 이렇게 설정할 시 
+
+요거트없이 
+MILK
+MILK
+로 들어간 CART_ID 도 포함되어버리므로, 종류가 다른 두가지가 = 2 인것을 추린다
+*/
